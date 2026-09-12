@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Сергей и Дарья</title>
-<meta name="description" content="Сергей и Дарья — супруги из России, ищем квартиру в Барселоне. Расскажем о себе: работа, хобби, активизм." />
-<meta property="og:title" content="Сергей и Дарья" />
-<meta property="og:description" content="Ищем квартиру в Барселоне. Расскажем о себе: работа, хобби, активизм." />
-<meta property="og:image" content="media/opt/s1.jpg" />
+<title>Sergey y Daria — buscamos piso en Barcelona</title>
+<meta name="description" content="Somos Sergey y Daria, un matrimonio que busca piso en Barcelona. Le contamos quiénes somos: trabajo, aficiones y voluntariado." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://icerain580.github.io/sergey-darya/" />
+<meta property="og:title" content="Sergey y Daria — buscamos piso en Barcelona" />
+<meta property="og:description" content="Somos un matrimonio que busca piso en Barcelona. Le contamos quiénes somos: trabajo, aficiones y voluntariado." />
+<meta property="og:image" content="https://icerain580.github.io/sergey-darya/media/opt/s1-selfie.jpg" />
+<meta property="og:locale" content="es_ES" />
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&display=swap&subset=cyrillic,latin" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap&subset=cyrillic,latin" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap&subset=cyrillic,latin" rel="stylesheet" />
@@ -20,6 +23,14 @@
   [data-reveal].in { opacity: 1; transform: none; }
   .hover-accent:hover { color: #e5b8a6 !important; }
   .hover-swap:hover { background: #e5b8a6 !important; color: #12100e !important; }
+  .hover-insta:hover { color: #fff !important; filter: brightness(1.12); }
+  .hero-hello { font-size: clamp(54px, 15vw, 78px); }
+  .hero-hello span { display: block; white-space: nowrap; }
+  .hero-hello span + span { margin-left: 18%; font-weight: 500; color: #e5b8a6; }
+  .lang-switch { display: flex; justify-content: flex-end; gap: 8px; margin-top: 30px; pointer-events: auto; }
+  .lang-switch button { min-width: 54px; height: 40px; padding: 0 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .14em; color: #f2efe9; background: rgba(18,16,14,.28); border: 1px solid rgba(242,239,233,.55); border-radius: 10px; cursor: pointer; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background .2s, color .2s, border-color .2s; }
+  .lang-switch button:hover { border-color: #f2efe9; }
+  .lang-switch button[aria-pressed="true"] { background: #e5b8a6; color: #12100e; border-color: #e5b8a6; }
   .logo-img { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; background: transparent; }
 </style>
 </head>
@@ -27,17 +38,22 @@
 <div style="background:#f2efe9;color:#0f0e0d;font-family:'Onest',system-ui,sans-serif;width:100%;max-width:560px;margin:0 auto;overflow-x:clip;-webkit-font-smoothing:antialiased">
 
   <section data-screen-label="01 Обложка" style="position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;background:#12100e">
-    <div style="position:absolute;inset:0"><img src="media/opt/s1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
-    <div style="position:absolute;top:22px;right:16px;transform:rotate(90deg);transform-origin:100% 0;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#f2efe9;mix-blend-mode:difference">ищем квартиру · barcelona 2026</div>
-    <div style="position:relative;pointer-events:none;padding:30px 18px 42px;background:linear-gradient(to top,rgba(18,16,14,.88),rgba(18,16,14,.35) 55%,rgba(18,16,14,0))">
-      <h1 style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:clamp(54px,15vw,78px);line-height:.86;letter-spacing:-.05em;margin:0;color:#f7f5f1;text-shadow:0 2px 24px rgba(18,16,14,.45)">Сергей<span style="display:block;margin-left:18%;font-weight:500;color:#e5b8a6">и Дарья</span></h1>
+    <div style="position:absolute;inset:0"><img src="media/opt/s1-selfie.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+    <div data-i18n="hero.tag" style="position:absolute;top:22px;right:16px;transform:rotate(90deg);transform-origin:100% 0;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#f2efe9;mix-blend-mode:difference">buscamos piso · barcelona 2026</div>
+    <div style="position:relative;pointer-events:none;padding:30px 18px calc(48px + 7svh);background:linear-gradient(to top,rgba(18,16,14,.88),rgba(18,16,14,.35) 55%,rgba(18,16,14,0))">
+      <h1 id="hero-hello" class="hero-hello" style="font-family:'Unbounded',sans-serif;font-weight:600;line-height:1.18;letter-spacing:-.05em;margin:0;color:#f7f5f1;text-shadow:0 2px 24px rgba(18,16,14,.45)"><span>¡Hola!</span></h1>
+      <div class="lang-switch" role="group" aria-label="Idioma · Language · Язык">
+        <button type="button" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
     </div>
   </section>
 
   <section data-screen-label="02 Привет" style="padding:66px 18px 70px;position:relative;overflow:hidden">
-    <h2 data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:40px;line-height:.95;letter-spacing:-.03em;margin:0 0 24px">Привет!</h2>
-    <p data-reveal style="font-size:17px;line-height:1.55;margin:0 0 18px;max-width:23em;text-wrap:pretty">Мы супруги <strong style="font-weight:600">Сергей Блинов</strong> и <strong style="font-weight:600">Дарья Павлова</strong>. Нам по 30 лет. Мы родом из России, но с 2022 года живём за её пределами.</p>
-    <p data-reveal style="font-size:17px;line-height:1.55;margin:0 0 26px;margin-left:8%;max-width:22em;text-wrap:pretty">Мы успели пожить в Турции, Грузии и Армении и очень хорошо знаем, как владельцу квартиры важно найти ответственных и аккуратных арендаторов. Нам кажется, что мы именно такие. Хотим рассказать вам про себя побольше!</p>
+    <h2 data-i18n="hello.h" data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:clamp(28px,8.4vw,40px);line-height:.95;letter-spacing:-.03em;margin:0 0 24px">Encantados de conocerle</h2>
+    <p data-i18n="hello.p1" data-reveal style="font-size:17px;line-height:1.55;margin:0 0 18px;max-width:23em;text-wrap:pretty">Somos <strong style="font-weight:600">Sergey Blinov</strong> y <strong style="font-weight:600">Daria Pavlova</strong>, un matrimonio. Los dos tenemos 30 años. Venimos de Rusia, pero desde 2022 vivimos en el extranjero.</p>
+    <p data-i18n="hello.p2" data-reveal style="font-size:17px;line-height:1.55;margin:0 0 26px;margin-left:8%;max-width:22em;text-wrap:pretty">Hemos vivido en Turquía, Georgia y Armenia, y sabemos muy bien lo importante que es para un propietario encontrar inquilinos responsables y cuidadosos. Creemos que somos exactamente ese tipo de inquilinos. ¡Nos gustaría contarle un poco más sobre nosotros!</p>
 
     <div data-reveal style="position:relative;margin:0 -18px 0 -18px">
       <div style="width:74%;margin-left:6%;aspect-ratio:2/3;transform:rotate(-2deg)"><img src="media/opt/s2-1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
@@ -45,26 +61,26 @@
       <div style="width:56%;margin-left:8%;margin-top:-8%;aspect-ratio:9/16;transform:rotate(-1deg)"><img src="media/opt/s2-3.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
     </div>
 
-    <p data-reveal style="font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.55;margin:34px 0 0;color:#6b6459;border-top:1px solid #d5cec2;padding-top:14px">Мы учим испанский, но ещё не можем писать на нём свободно. Поэтому весь текст переведён через ИИ. Просим прощения, если перевод не всегда легко понять.</p>
+    <p data-i18n="hello.note" data-reveal style="font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.55;margin:34px 0 0;color:#6b6459;border-top:1px solid #d5cec2;padding-top:14px">Estamos aprendiendo español, pero todavía no lo escribimos con soltura. Por eso todo el texto se ha traducido con ayuda de la IA. Le pedimos disculpas si la traducción no siempre resulta fácil de entender.</p>
   </section>
 
   <section data-screen-label="03 Работа" style="padding:0 0 72px;position:relative">
     <div style="padding:0 18px">
-      <h2 data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:40px;line-height:.95;letter-spacing:-.03em;margin:0 0 22px">Работа</h2>
+      <h2 data-i18n="work.h" data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:40px;line-height:.95;letter-spacing:-.03em;margin:0 0 22px">Trabajo</h2>
       <div data-reveal style="display:flex;align-items:flex-end;justify-content:space-between;gap:10px;border-top:1.5px solid #0f0e0d;border-bottom:1.5px solid #0f0e0d;padding:14px 0;margin-bottom:30px">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#6b6459;max-width:8em;line-height:1.4">Суммарный доход в месяц</span>
-        <span style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:36px;line-height:.9;letter-spacing:-.04em">6600&nbsp;€</span>
+        <span data-i18n="work.income" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#6b6459;max-width:8em;line-height:1.4">Ingresos conjuntos al mes</span>
+        <span data-i18n="work.amount" style="font-family:'Unbounded',sans-serif;font-weight:600;font-size:36px;line-height:.9;letter-spacing:-.04em">6600&nbsp;€</span>
       </div>
     </div>
 
     <div data-reveal style="display:flex;align-items:flex-start;gap:12px;padding:0 18px 0 0;margin-bottom:12px">
       <div style="width:38%;flex:none;aspect-ratio:2/3;transform:rotate(-1.5deg) translateX(-6px)"><img src="media/opt/s3-1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
       <div style="padding-top:6px">
-        <h3 style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin:0 0 10px;color:#b8402a">Сергей</h3>
-        <p style="font-size:15.5px;line-height:1.5;margin:0;text-wrap:pretty">Профессионал в сфере рекламы и PR. Работает с международной компанией <a href="https://geyserfilters.com/pages/home" target="_blank" rel="noopener" style="text-decoration:underline;text-decoration-color:#b8402a;text-underline-offset:3px">Geyser Water Filters</a> из Эстонии — она производит фильтры для воды.</p>
+        <h3 data-i18n="work.sergey" style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin:0 0 10px;color:#b8402a">Sergey</h3>
+        <p data-i18n="work.sergey.p1" style="font-size:15.5px;line-height:1.5;margin:0;text-wrap:pretty">Profesional de la publicidad y las relaciones públicas. Trabaja con <a href="https://geyserfilters.com/pages/home" target="_blank" rel="noopener" style="text-decoration:underline;text-decoration-color:#b8402a;text-underline-offset:3px">Geyser Water Filters</a>, una empresa internacional de Estonia que fabrica filtros de agua.</p>
       </div>
     </div>
-    <p data-reveal style="font-size:15.5px;line-height:1.5;margin:0 18px 22px;text-wrap:pretty">Ещё один клиент — НКО <a href="https://arctida.io/en" target="_blank" rel="noopener" style="text-decoration:underline;text-decoration-color:#b8402a;text-underline-offset:3px">Arctida</a> из Грузии, которая занимается проблемами Арктики. А в прошлом Сергей — режиссёр фестивалей и концертов.</p>
+    <p data-i18n="work.sergey.p2" data-reveal style="font-size:15.5px;line-height:1.5;margin:0 18px 22px;text-wrap:pretty">Otro de sus clientes es <a href="https://arctida.io/en" target="_blank" rel="noopener" style="text-decoration:underline;text-decoration-color:#b8402a;text-underline-offset:3px">Arctida</a>, una ONG de Georgia que se ocupa de los problemas del Ártico. Anteriormente, Sergey trabajó como director de festivales y conciertos.</p>
 
     <div data-reveal style="display:flex;flex-wrap:wrap;align-items:center;gap:18px 22px;padding:0 18px;margin:0 0 26px">
       <div style="width:36%;transform:rotate(-1deg)"><img class="logo-img" src="media/logos/arctida.png" alt="Arctida" loading="lazy" style="aspect-ratio:3.17" /></div>
@@ -72,8 +88,8 @@
     </div>
 
     <div data-reveal style="padding:0 18px;margin-bottom:20px">
-      <h3 style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin:0 0 10px;color:#b8402a">Дарья</h3>
-      <p style="font-size:15.5px;line-height:1.5;margin:0;margin-left:6%;text-wrap:pretty">Копирайтер в EdTech-холдинге Negentrix из Германии. В него входят несколько образовательных компаний — IT Career Hub, DWW Akademie и <a href="https://mbiakademie.de/" target="_blank" rel="noopener" style="text-decoration:underline;text-decoration-color:#b8402a;text-underline-offset:3px">MBI Akademie</a>, в которой работает Дарья. В прошлом — гид-проводник многодневных походов.</p>
+      <h3 data-i18n="work.daria" style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin:0 0 10px;color:#b8402a">Daria</h3>
+      <p data-i18n="work.daria.p" style="font-size:15.5px;line-height:1.5;margin:0;margin-left:6%;text-wrap:pretty">Redactora publicitaria en Negentrix, un grupo alemán de tecnología educativa que reúne varias empresas del sector: IT Career Hub, DWW Akademie y <a href="https://mbiakademie.de/" target="_blank" rel="noopener" style="text-decoration:underline;text-decoration-color:#b8402a;text-underline-offset:3px">MBI Akademie</a>, donde trabaja Daria. Antes fue guía de rutas de senderismo de varios días.</p>
     </div>
     <div data-reveal style="display:flex;flex-wrap:wrap;align-items:center;gap:18px 24px;padding:0 18px">
       <div style="width:44%;transform:rotate(.8deg)"><img class="logo-img" src="media/logos/mbi-akademie.png" alt="MBI Akademie" loading="lazy" style="aspect-ratio:6.54" /></div>
@@ -81,11 +97,29 @@
     </div>
   </section>
 
-  <section data-screen-label="04 Хобби" style="background:#12100e;color:#f2efe9;padding:0 0 66px;position:relative;overflow:hidden">
+  <section data-screen-label="04 Ответственность и забота" style="background:#e9e4da;padding:66px 0 84px;position:relative;overflow:hidden">
+    <div style="padding:0 18px">
+      <h2 data-i18n="care.h" data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:clamp(28px,8.4vw,38px);line-height:.95;letter-spacing:-.03em;margin:0 0 22px">Responsabilidad<br /><span style="margin-left:14%;display:inline-block;color:#b8402a">y cuidado</span></h2>
+      <p data-i18n="care.p" data-reveal style="font-size:17px;line-height:1.55;margin:0 0 22px;max-width:23em;text-wrap:pretty">Siempre mantenemos una buena relación con los propietarios y pagamos puntualmente. Cuidamos su casa como si fuera nuestra y, antes de mudarnos, contratamos una limpieza profesional.</p>
+      <p data-i18n="care.letters" data-reveal style="font-size:17px;line-height:1.45;font-weight:500;margin:0 0 32px;padding:4px 0 4px 14px;border-left:2px solid #b8402a;max-width:23em;text-wrap:pretty">Podemos presentar cartas de recomendación.</p>
+    </div>
+    <div data-reveal style="display:flex;align-items:flex-start;gap:8px;padding:0 18px 0 0;margin-bottom:8px">
+      <div style="width:52%;flex:none;aspect-ratio:3/4;transform:rotate(-1.5deg) translateX(-8px)"><img src="media/opt/snew-2-1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+      <div style="width:44%;aspect-ratio:9/16;margin-top:28px;transform:rotate(1.6deg)"><img src="media/opt/snew-2-2.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+    </div>
+    <div data-reveal style="width:64%;margin:14px 0 14px 30%;transform:rotate(2deg)"><video src="media/screen-new-1.mp4" muted loop playsinline preload="metadata" style="display:block;width:100%;aspect-ratio:.56;object-fit:cover;background:#1b1815"></video></div>
+    <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:22px 18px 0;align-items:start">
+      <div style="aspect-ratio:9/16;transform:rotate(-1deg)"><img src="media/opt/snew-3.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+      <div style="aspect-ratio:9/16;transform:translateY(18px) rotate(1.2deg)"><img src="media/opt/snew-1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+    </div>
+    <div data-reveal style="width:66%;margin:40px 0 0 6%;transform:rotate(-1.4deg)"><video src="media/screen-new-2.mp4" muted loop playsinline preload="metadata" style="display:block;width:100%;aspect-ratio:.56;object-fit:cover;background:#1b1815"></video></div>
+  </section>
+
+  <section data-screen-label="05 Хобби" style="background:#12100e;color:#f2efe9;padding:0 0 66px;position:relative;overflow:hidden">
     <div style="height:80svh;min-height:400px"><img src="media/opt/s4-1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
     <div style="padding:34px 18px 0;position:relative">
-      <h2 data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:38px;line-height:.95;letter-spacing:-.03em;margin:0 0 20px">Хобби<span style="display:block;margin-left:26%;color:#e5b8a6;font-weight:400;font-size:26px">sport climbing</span></h2>
-      <p data-reveal style="font-size:17px;line-height:1.55;margin:0 0 28px;color:#e2ddd4;max-width:23em;text-wrap:pretty">Мы любим скалолазание! Поэтому Барселона и Испания — наша мечта. В городе много классных скалодромов, а вокруг потрясающие горы и развитая инфраструктура для таких, как мы.</p>
+      <h2 data-i18n="hobby.h" data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:38px;line-height:.95;letter-spacing:-.03em;margin:0 0 20px">Aficiones</h2>
+      <p data-i18n="hobby.p" data-reveal style="font-size:17px;line-height:1.55;margin:0 0 28px;color:#e2ddd4;max-width:23em;text-wrap:pretty">¡Nos encanta la escalada! Por eso Barcelona y España son nuestro sueño. La ciudad tiene muchos rocódromos geniales y, en los alrededores, hay montañas impresionantes y una infraestructura excelente para gente como nosotros.</p>
     </div>
     <div data-reveal style="width:70%;margin:0 0 0 8%;transform:rotate(-1.5deg)"><video src="media/screen-04.mp4" muted loop playsinline preload="metadata" style="display:block;width:100%;aspect-ratio:.56;object-fit:cover;background:#1b1815"></video></div>
     <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:20px 18px 0;align-items:start">
@@ -96,52 +130,45 @@
     </div>
   </section>
 
-  <section data-screen-label="05 Музыка" style="padding:0 0 70px;position:relative;overflow:hidden">
+  <section data-screen-label="06 Музыка и игры" style="padding:0 0 70px;position:relative;overflow:hidden">
     <div data-reveal style="margin-bottom:30px"><img src="media/opt/s5-1.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:1.5;object-fit:cover;display:block" /></div>
     <div style="padding:0 18px">
-      <h2 data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:40px;line-height:.95;letter-spacing:-.03em;margin:0 0 20px">Музыка</h2>
-      <p data-reveal style="font-size:17px;line-height:1.55;margin:0 0 26px;max-width:23em;text-wrap:pretty"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#b8402a;display:block;margin-bottom:10px">Даша</span>Я занимаюсь музыкой. Пою, играю на обеих гитарах, фортепиано, ударных и пишу собственные песни. Вот <a href="https://open.spotify.com/artist/0Dw0rHp2bhiomHkQMGNk7j?si=0qyDq1-KTD6dtVQ03roFOw" target="_blank" rel="noopener" style="text-decoration:underline;text-decoration-color:#b8402a;text-underline-offset:3px">мой музыкальный проект</a> на русском языке на Spotify — там пока только один альбом, но скоро будет второй. Ещё я много читаю, люблю хайкинг и спорт!</p>
+      <p data-i18n="music.p" data-reveal style="font-size:17px;line-height:1.55;margin:0 0 26px;max-width:23em;text-wrap:pretty">¡También nos encanta la música! Estamos desarrollando nuestro propio <a href="https://open.spotify.com/artist/0Dw0rHp2bhiomHkQMGNk7j?si=0qyDq1-KTD6dtVQ03roFOw" target="_blank" rel="noopener" style="text-decoration:underline;text-decoration-color:#b8402a;text-underline-offset:3px">proyecto musical</a> en Spotify. Y con los amigos quedamos para jugar a juegos de mesa, desconectar y volver a ser niños un rato. En nuestro tiempo libre también disfrutamos de los libros, el senderismo y los viajes en coche.</p>
     </div>
     <div data-reveal style="display:flex;align-items:flex-start;gap:8px;padding:0 18px 0 0;margin-bottom:8px">
       <div style="width:52%;flex:none;aspect-ratio:.7;transform:rotate(-1.6deg) translateX(-8px)"><img src="media/opt/s5-2.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
-      <div style="width:44%;aspect-ratio:2/3;margin-top:26px;transform:rotate(1.6deg)"><img src="media/opt/s5-3.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+      <div style="width:44%;aspect-ratio:.75;margin-top:26px;transform:rotate(1.6deg)"><img src="media/opt/s6-8b.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
     </div>
     <div data-reveal style="width:64%;margin:14px 0 14px 30%;transform:rotate(2deg)"><video src="media/screen-05.mp4" muted loop playsinline preload="metadata" style="display:block;width:100%;aspect-ratio:.56;object-fit:cover;background:#1b1815"></video></div>
     <div data-reveal style="display:grid;grid-template-columns:1.1fr .9fr;gap:8px;padding:0 18px;align-items:start">
-      <div style="aspect-ratio:.68;transform:rotate(.8deg)"><img src="media/opt/s5-4.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+      <div style="aspect-ratio:9/16;transform:rotate(.8deg)"><img src="media/opt/s6-5.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
       <div style="aspect-ratio:9/16;transform:translateY(18px) rotate(-1.2deg)"><img src="media/opt/s5-5.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
     </div>
     <div data-reveal style="width:62%;margin:26px 0 10px 30%;transform:rotate(1.2deg)"><img src="media/opt/s5-6.jpg" alt="" loading="lazy" style="width:100%;height:auto;display:block" /></div>
-    <div data-reveal><img src="media/opt/s5-7.jpg" alt="" loading="lazy" style="width:100%;height:auto;display:block" /></div>
-  </section>
+    <div data-reveal style="margin-bottom:36px"><img src="media/opt/s5-7.jpg" alt="" loading="lazy" style="width:100%;height:auto;display:block" /></div>
 
-  <section data-screen-label="06 Настольные игры" style="padding:0 0 70px;position:relative;overflow:hidden;background:#e9e4da">
-    <div data-reveal style="margin-bottom:28px"><img src="media/opt/s6-7.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:1.51;object-fit:cover;display:block" /></div>
-    <div style="padding:0 18px">
-      <h2 data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:36px;line-height:.95;letter-spacing:-.03em;margin:0 0 20px">Настольные<br /><span style="margin-left:20%;display:inline-block">игры</span></h2>
-      <p data-reveal style="font-size:17px;line-height:1.55;margin:0 0 26px;max-width:23em;text-wrap:pretty"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#b8402a;display:block;margin-bottom:10px">Сергей</span>Я люблю настольные игры с друзьями и, иногда, компьютерные в одиночестве. Они помогают мне перезагрузиться и порадовать внутреннего ребёнка. Ещё я интересуюсь экономикой, политикой и социологией. Люблю автопутешествия и (неожиданно) писать от руки!</p>
-    </div>
-    <div data-reveal style="width:66%;margin:0 0 16px 6%;transform:rotate(1.4deg)"><video src="media/screen-06.mp4" muted loop playsinline preload="metadata" style="display:block;width:100%;aspect-ratio:.56;object-fit:cover;background:#1b1815"></video></div>
-    <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 18px;align-items:start">
-      <div style="aspect-ratio:9/16;transform:translateY(12px) rotate(-1deg)"><img src="media/opt/s6-1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
-      <div style="aspect-ratio:9/16;transform:rotate(1.2deg)"><img src="media/opt/s6-2.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
-      <div style="aspect-ratio:2/3;transform:rotate(.7deg)"><img src="media/opt/s6-3.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
-      <div style="aspect-ratio:9/16;transform:translateY(14px) rotate(-1.4deg)"><img src="media/opt/s6-4.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
-    </div>
-    <div data-reveal style="display:flex;gap:8px;padding:26px 18px 0;align-items:flex-start">
-      <div style="width:42%;aspect-ratio:9/16;transform:rotate(1deg)"><img src="media/opt/s6-5.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
-      <div style="width:34%;aspect-ratio:9/16;margin-top:22px;transform:rotate(-1.6deg)"><img src="media/opt/s6-6.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
-      <div style="width:24%;aspect-ratio:.75;transform:rotate(2deg)"><img src="media/opt/s6-8b.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+    <div style="background:#e9e4da;padding-top:34px;padding-bottom:8px;margin:0 -18px;padding-left:18px;padding-right:18px">
+      <div data-reveal style="margin:0 -18px 28px"><img src="media/opt/s6-7.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:1.51;object-fit:cover;display:block" /></div>
+      <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start">
+        <div style="aspect-ratio:9/16;transform:translateY(12px) rotate(-1deg)"><img src="media/opt/s6-1.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+        <div style="aspect-ratio:9/16;transform:rotate(1.2deg)"><img src="media/opt/s6-2.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+        <div style="aspect-ratio:2/3;transform:rotate(.7deg)"><img src="media/opt/s6-3.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+        <div style="aspect-ratio:9/16;transform:translateY(14px) rotate(-1.4deg)"><img src="media/opt/s6-4.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+      </div>
+      <div data-reveal style="display:flex;gap:8px;padding:26px 0 34px;align-items:flex-start">
+        <div style="width:52%;aspect-ratio:.68;transform:rotate(1deg)"><img src="media/opt/s5-4.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+        <div style="width:44%;aspect-ratio:9/16;margin-top:22px;transform:rotate(-1.6deg)"><img src="media/opt/s6-6.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+      </div>
     </div>
   </section>
 
-  <section data-screen-label="07 Активизм" style="background:#12100e;color:#f2efe9;padding:66px 0 70px;position:relative;overflow:hidden">
+  <section data-screen-label="07 Делать мир лучше" style="background:#12100e;color:#f2efe9;padding:66px 0 70px;position:relative;overflow:hidden">
     <div style="padding:0 18px">
-      <h2 data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:40px;line-height:.95;letter-spacing:-.03em;margin:0 0 22px">Активизм</h2>
-      <p data-reveal style="font-size:17px;line-height:1.55;margin:0 0 30px;color:#e2ddd4;max-width:23em;text-wrap:pretty">Интерес к добрым и полезным делам, которые делают жизнь вокруг лучше, — это общая черта нашей пары. За 4 года мы были волонтёрами разных гуманитарных и социальных организаций и начинали собственные. Все они антивоенные и направлены на помощь Украине.</p>
+      <h2 data-i18n="world.h" data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:40px;line-height:.95;letter-spacing:-.03em;margin:0 0 22px">Por un mundo mejor</h2>
+      <p data-i18n="world.p" data-reveal style="font-size:17px;line-height:1.55;margin:0 0 30px;color:#e2ddd4;max-width:23em;text-wrap:pretty">Lo que nos une como pareja es el interés por las causas buenas y útiles que mejoran la vida a nuestro alrededor. En los últimos cuatro años hemos sido voluntarios en diversas organizaciones humanitarias y sociales, y también hemos creado las nuestras. Todas ellas son antibelicistas y se dedican a ayudar a Ucrania.</p>
       <ul data-reveal style="list-style:none;margin:0 0 32px;padding:0;border-top:1px solid #3a352e">
         <li style="border-bottom:1px solid #3a352e"><a class="hover-accent" href="https://helpingtoleave.org/en" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;color:#f2efe9;font-size:16px">Helping to Leave<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7d776c">↗</span></a></li>
-        <li style="border-bottom:1px solid #3a352e;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;font-size:16px;color:#7d776c">Russians Against War Antalya<span style="font-family:'JetBrains Mono',monospace;font-size:11px">закрыта</span></li>
+        <li style="border-bottom:1px solid #3a352e;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;font-size:16px;color:#7d776c">Russians Against War Antalya<span data-i18n="world.closed" style="font-family:'JetBrains Mono',monospace;font-size:11px">cerrada</span></li>
         <li style="border-bottom:1px solid #3a352e"><a class="hover-accent" href="https://www.instagram.com/music.against.war/" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;color:#f2efe9;font-size:16px">Music Against War<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7d776c">↗</span></a></li>
         <li style="border-bottom:1px solid #3a352e"><a class="hover-accent" href="https://emigrationforaction.com/en/" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;color:#f2efe9;font-size:16px">Emigration for Action<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7d776c">↗</span></a></li>
         <li style="border-bottom:1px solid #3a352e"><a class="hover-accent" href="https://www.instagram.com/volunteers_tbilisi/" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;color:#f2efe9;font-size:16px">Tbilisi Volunteers<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7d776c">↗</span></a></li>
@@ -170,27 +197,266 @@
     </div>
     <div data-reveal style="position:relative;z-index:2;width:44%;margin:-18% 0 0 8%;aspect-ratio:2/3;transform:rotate(-2deg);box-shadow:0 20px 44px rgba(18,16,14,.28)"><img src="media/opt/s8-2.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
     <div data-reveal style="padding:24px 18px 60px;margin-top:-12%">
-      <h2 style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:34px;line-height:.95;letter-spacing:-.03em;margin:0 0 16px;text-align:right">Муж<br /><span style="color:#b8402a">и жена</span></h2>
-      <p style="font-size:18px;line-height:1.45;margin:0 0 0 26%;text-wrap:pretty">Антивоенная позиция и помощь слабым — фундамент нашего союза.</p>
+      <h2 data-i18n="couple.h" style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:34px;line-height:.95;letter-spacing:-.03em;margin:0 0 16px;text-align:right">Marido<br /><span style="color:#b8402a">y mujer</span></h2>
+      <p data-i18n="couple.p" style="font-size:18px;line-height:1.45;margin:0 0 0 26%;text-wrap:pretty">Nuestra postura contra la guerra y la ayuda a los más vulnerables son la base de nuestra unión.</p>
     </div>
   </section>
 
   <section data-screen-label="09 Контакты" style="background:#12100e;color:#f2efe9;padding:62px 18px 70px;position:relative;overflow:hidden">
-    <h2 data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:36px;line-height:.95;letter-spacing:-.03em;margin:0 0 22px">Рады<br /><span style="margin-left:14%;display:inline-block;color:#e5b8a6">познакомиться!</span></h2>
-    <p data-reveal style="font-size:17px;line-height:1.55;margin:0 0 28px;color:#e2ddd4;max-width:23em;text-wrap:pretty">Чтобы не делать презентацию бесконечной, мы остановимся здесь. Ниже — наши контакты, если вы хотите узнать нас ещё лучше.</p>
+    <h2 data-i18n="bye.h" data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:36px;line-height:.95;letter-spacing:-.03em;margin:0 0 22px">¡Gracias<br /><span style="margin-left:14%;display:inline-block;color:#e5b8a6">por su tiempo!</span></h2>
+    <p data-i18n="bye.p" data-reveal style="font-size:17px;line-height:1.55;margin:0 0 28px;color:#e2ddd4;max-width:23em;text-wrap:pretty">Para que la presentación no se haga interminable, lo dejamos aquí. Más abajo encontrará nuestros contactos, por si quiere conocernos aún mejor.</p>
     <div data-reveal style="width:62%;margin:0 0 34px 22%;transform:rotate(-1.6deg)"><video src="media/screen-09.mp4" muted loop playsinline preload="metadata" style="display:block;width:100%;aspect-ratio:.56;object-fit:cover;background:#1b1815"></video></div>
-    <div data-reveal style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7d776c;margin-bottom:10px">Сергей</div>
+    <div data-i18n="contact.sergey" data-reveal style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7d776c;margin-bottom:10px">Sergey</div>
     <a data-reveal class="hover-accent" href="tel:+995591125529" style="display:block;font-family:'Unbounded',sans-serif;font-weight:400;font-size:26px;letter-spacing:-.03em;margin-bottom:20px;color:#f2efe9">+995 591 125 529</a>
-    <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:42px">
+    <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:30px">
       <a class="hover-swap" href="https://wa.me/995591125529" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;background:#f2efe9;color:#12100e;font-size:15px;font-weight:600">WhatsApp<span style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.55">↗</span></a>
       <a class="hover-swap" href="https://t.me/sir_blin" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;background:#f2efe9;color:#12100e;font-size:15px;font-weight:600">Telegram<span style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.55">↗</span></a>
     </div>
-    <p data-reveal style="font-family:'Unbounded',sans-serif;font-weight:400;font-size:24px;line-height:1.15;letter-spacing:-.03em;margin:0;padding-top:26px;border-top:1px solid #3a352e;color:#e5b8a6">Всего хорошего!</p>
+    <div data-i18n="contact.insta" data-reveal style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7d776c;margin-bottom:10px">Instagram</div>
+    <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:42px">
+      <a class="hover-insta" href="https://www.instagram.com/ss.blinov/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);color:#fff;font-size:15px;font-weight:600">Sergey<span style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.7">↗</span></a>
+      <a class="hover-insta" href="https://www.instagram.com/dasha_politota" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);color:#fff;font-size:15px;font-weight:600">Daria<span style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.7">↗</span></a>
+    </div>
+    <p data-i18n="bye.last" data-reveal style="font-family:'Unbounded',sans-serif;font-weight:400;font-size:24px;line-height:1.15;letter-spacing:-.03em;margin:0;color:#e5b8a6">¡Le deseamos lo mejor!</p>
   </section>
 
 </div>
 <script>
+var I18N = {
+ "meta.title": {
+  "es": "Sergey y Daria — buscamos piso en Barcelona",
+  "en": "Sergey & Daria — looking for an apartment in Barcelona",
+  "ru": "Сергей и Дарья — ищем квартиру в Барселоне"
+ },
+ "hero.tag": {
+  "es": "buscamos piso · barcelona 2026",
+  "en": "looking for an apartment · barcelona 2026",
+  "ru": "ищем квартиру · barcelona 2026"
+ },
+ "hero.hello": {
+  "es": "¡Hola!",
+  "en": "Hello!",
+  "ru": "Здравствуйте!"
+ },
+ "hello.h": {
+  "es": "Encantados de conocerle",
+  "en": "Nice to meet you",
+  "ru": "Рады познакомиться"
+ },
+ "hello.p1": {
+  "es": "Somos <strong>Sergey Blinov<\/strong> y <strong>Daria Pavlova<\/strong>, un matrimonio. Los dos tenemos 30 años. Venimos de Rusia, pero desde 2022 vivimos en el extranjero.",
+  "en": "We're <strong>Sergey Blinov<\/strong> and <strong>Daria Pavlova<\/strong>, a married couple. We're both 30. Originally from Russia, we've been living abroad since 2022.",
+  "ru": "Мы супруги <strong>Сергей Блинов<\/strong> и&nbsp;<strong>Дарья Павлова<\/strong>. Нам по&nbsp;30&nbsp;лет. Мы родом из&nbsp;России, но&nbsp;с&nbsp;2022&nbsp;года живём за&nbsp;её пределами."
+ },
+ "hello.p2": {
+  "es": "Hemos vivido en Turquía, Georgia y Armenia, y sabemos muy bien lo importante que es para un propietario encontrar inquilinos responsables y cuidadosos. Creemos que somos exactamente ese tipo de inquilinos. ¡Nos gustaría contarle un poco más sobre nosotros!",
+  "en": "We've lived in Turkey, Georgia and Armenia, and we know very well how important it is for a landlord to find responsible and careful tenants. We believe that's exactly who we are. We'd love to tell you a little more about ourselves!",
+  "ru": "Мы успели пожить в&nbsp;Турции, Грузии и&nbsp;Армении и&nbsp;очень хорошо знаем, как&nbsp;владельцу квартиры важно найти ответственных и&nbsp;аккуратных арендаторов. Нам кажется, что&nbsp;мы именно такие. Хотим рассказать вам про&nbsp;себя побольше!"
+ },
+ "hello.note": {
+  "es": "Estamos aprendiendo español, pero todavía no lo escribimos con soltura. Por eso todo el texto se ha traducido con ayuda de la IA. Le pedimos disculpas si la traducción no siempre resulta fácil de entender.",
+  "en": "We're learning Spanish, but we can't write it fluently yet. That's why all the text has been translated with AI. We apologize if the translation isn't always easy to understand.",
+  "ru": "Мы учим испанский, но&nbsp;ещё не&nbsp;можем писать на&nbsp;нём свободно. Поэтому весь текст переведён через&nbsp;ИИ. Просим прощения, если&nbsp;перевод не&nbsp;всегда легко понять."
+ },
+ "work.h": {
+  "es": "Trabajo",
+  "en": "Work",
+  "ru": "Работа"
+ },
+ "work.income": {
+  "es": "Ingresos conjuntos al mes",
+  "en": "Combined monthly income",
+  "ru": "Суммарный доход в&nbsp;месяц"
+ },
+ "work.amount": {
+  "es": "6600&nbsp;€",
+  "en": "€6,600",
+  "ru": "6600&nbsp;€"
+ },
+ "work.sergey": {
+  "es": "Sergey",
+  "en": "Sergey",
+  "ru": "Сергей"
+ },
+ "work.sergey.p1": {
+  "es": "Profesional de la publicidad y las relaciones públicas. Trabaja con <a>Geyser Water Filters<\/a>, una empresa internacional de Estonia que fabrica filtros de agua.",
+  "en": "An advertising and PR professional. He works with <a>Geyser Water Filters<\/a>, an international company from Estonia that makes water filters.",
+  "ru": "Профессионал в&nbsp;сфере рекламы и&nbsp;PR. Работает с&nbsp;международной компанией <a>Geyser Water Filters<\/a> из&nbsp;Эстонии&nbsp;— она производит фильтры для&nbsp;воды."
+ },
+ "work.sergey.p2": {
+  "es": "Otro de sus clientes es <a>Arctida<\/a>, una ONG de Georgia que se ocupa de los problemas del Ártico. Anteriormente, Sergey trabajó como director de festivales y conciertos.",
+  "en": "Another client is <a>Arctida<\/a>, an NGO from Georgia that works on Arctic issues. Before that, Sergey worked as a festival and concert director.",
+  "ru": "Ещё один клиент&nbsp;— НКО <a>Arctida<\/a> из&nbsp;Грузии, которая занимается проблемами Арктики. А&nbsp;в&nbsp;прошлом Сергей&nbsp;— режиссёр фестивалей и&nbsp;концертов."
+ },
+ "work.daria": {
+  "es": "Daria",
+  "en": "Daria",
+  "ru": "Дарья"
+ },
+ "work.daria.p": {
+  "es": "Redactora publicitaria en Negentrix, un grupo alemán de tecnología educativa que reúne varias empresas del sector: IT Career Hub, DWW Akademie y <a>MBI Akademie<\/a>, donde trabaja Daria. Antes fue guía de rutas de senderismo de varios días.",
+  "en": "A copywriter at Negentrix, a German EdTech holding company that brings together several education businesses: IT Career Hub, DWW Akademie and <a>MBI Akademie<\/a>, where Daria works. She used to work as a guide on multi-day hikes.",
+  "ru": "Копирайтер в&nbsp;EdTech-холдинге Negentrix из&nbsp;Германии. В&nbsp;него входят несколько образовательных компаний&nbsp;— IT Career Hub, DWW Akademie и&nbsp;<a>MBI Akademie<\/a>, в&nbsp;которой работает Дарья. В&nbsp;прошлом&nbsp;— гид-проводник многодневных походов."
+ },
+ "care.h": {
+  "es": "Responsabilidad<br /><span>y cuidado<\/span>",
+  "en": "Responsibility<br /><span>and care<\/span>",
+  "ru": "Ответственность<br /><span>и&nbsp;забота<\/span>"
+ },
+ "care.p": {
+  "es": "Siempre mantenemos una buena relación con los propietarios y pagamos puntualmente. Cuidamos su casa como si fuera nuestra y, antes de mudarnos, contratamos una limpieza profesional.",
+  "en": "We always keep good relationships with our landlords and pay on time. We take care of your home as if it were our own, and before moving out we hire professional cleaners.",
+  "ru": "Мы всегда сохраняем хорошие отношения с&nbsp;квартиродателями и&nbsp;платим вовремя. Мы заботимся о&nbsp;вашем доме, как&nbsp;о&nbsp;своём, а&nbsp;перед&nbsp;выселением вызываем клининг."
+ },
+ "care.letters": {
+  "es": "Podemos presentar cartas de recomendación.",
+  "en": "We can provide letters of recommendation.",
+  "ru": "Можем предоставить рекомендательные письма."
+ },
+ "hobby.h": {
+  "es": "Aficiones",
+  "en": "Hobbies",
+  "ru": "Хобби"
+ },
+ "hobby.p": {
+  "es": "¡Nos encanta la escalada! Por eso Barcelona y España son nuestro sueño. La ciudad tiene muchos rocódromos geniales y, en los alrededores, hay montañas impresionantes y una infraestructura excelente para gente como nosotros.",
+  "en": "We love climbing! That's why Barcelona and Spain are our dream. The city has lots of great climbing gyms, and all around it there are stunning mountains and excellent infrastructure for people like us.",
+  "ru": "Мы любим скалолазание! Поэтому Барселона и&nbsp;Испания&nbsp;— наша мечта. В&nbsp;городе много классных скалодромов, а&nbsp;вокруг потрясающие горы и&nbsp;развитая инфраструктура для&nbsp;таких, как&nbsp;мы."
+ },
+ "music.p": {
+  "es": "¡También nos encanta la música! Estamos desarrollando nuestro propio <a>proyecto musical<\/a> en Spotify. Y con los amigos quedamos para jugar a juegos de mesa, desconectar y volver a ser niños un rato. En nuestro tiempo libre también disfrutamos de los libros, el senderismo y los viajes en coche.",
+  "en": "We also love music! We're growing our own <a>music project<\/a> on Spotify. And we get together with friends for board games to recharge and feel like kids again for a while. In our free time we also enjoy books, hiking and road trips.",
+  "ru": "Ещё мы любим музыку! Развиваем свой <a>музыкальный проект<\/a> на&nbsp;Spotify. А&nbsp;с&nbsp;друзьями собираемся за&nbsp;настольными играми, чтобы&nbsp;перезагрузиться и&nbsp;немного побыть детьми. Ещё в&nbsp;свободное время&nbsp;— книги, хайкинг и&nbsp;автопутешествия."
+ },
+ "world.h": {
+  "es": "Por un mundo mejor",
+  "en": "Making the world better",
+  "ru": "Делать мир лучше"
+ },
+ "world.p": {
+  "es": "Lo que nos une como pareja es el interés por las causas buenas y útiles que mejoran la vida a nuestro alrededor. En los últimos cuatro años hemos sido voluntarios en diversas organizaciones humanitarias y sociales, y también hemos creado las nuestras. Todas ellas son antibelicistas y se dedican a ayudar a Ucrania.",
+  "en": "What we share as a couple is a passion for good and useful causes that make life around us better. Over the past four years, we've volunteered with various humanitarian and social organizations and started our own. All of them are anti-war and focused on helping Ukraine.",
+  "ru": "Интерес к&nbsp;добрым и&nbsp;полезным делам, которые делают жизнь вокруг лучше,&nbsp;— это общая черта нашей пары. За&nbsp;4&nbsp;года мы были волонтёрами разных гуманитарных и&nbsp;социальных организаций и&nbsp;начинали собственные. Все они антивоенные и&nbsp;направлены на&nbsp;помощь Украине."
+ },
+ "world.closed": {
+  "es": "cerrada",
+  "en": "closed",
+  "ru": "закрыта"
+ },
+ "couple.h": {
+  "es": "Marido<br /><span>y mujer<\/span>",
+  "en": "Husband<br /><span>and wife<\/span>",
+  "ru": "Муж<br /><span>и&nbsp;жена<\/span>"
+ },
+ "couple.p": {
+  "es": "Nuestra postura contra la guerra y la ayuda a los más vulnerables son la base de nuestra unión.",
+  "en": "Our anti-war stance and helping the vulnerable are the foundation of our union.",
+  "ru": "Антивоенная позиция и&nbsp;помощь слабым&nbsp;— фундамент нашего союза."
+ },
+ "bye.h": {
+  "es": "¡Gracias<br /><span>por su tiempo!<\/span>",
+  "en": "Thank you<br /><span>for your time!<\/span>",
+  "ru": "Спасибо,<br /><span>что&nbsp;уделили время!<\/span>"
+ },
+ "bye.p": {
+  "es": "Para que la presentación no se haga interminable, lo dejamos aquí. Más abajo encontrará nuestros contactos, por si quiere conocernos aún mejor.",
+  "en": "To keep this presentation from going on forever, we'll stop here. Below are our contact details, in case you'd like to get to know us even better.",
+  "ru": "Чтобы&nbsp;не&nbsp;делать презентацию бесконечной, мы остановимся здесь. Ниже&nbsp;— наши контакты, если&nbsp;вы хотите узнать нас ещё лучше."
+ },
+ "contact.sergey": {
+  "es": "Sergey",
+  "en": "Sergey",
+  "ru": "Сергей"
+ },
+ "contact.insta": {
+  "es": "Instagram",
+  "en": "Instagram",
+  "ru": "Инстаграм"
+ },
+ "bye.last": {
+  "es": "¡Le deseamos lo mejor!",
+  "en": "All the best!",
+  "ru": "Всего хорошего!"
+ },
+ "hero.helloName": {
+  "es": "¡Hola,|{name}!",
+  "en": "Hello,|{name}!",
+  "ru": "Здравствуйте,|{name}!"
+ }
+};
+
 document.addEventListener('DOMContentLoaded', function () {
+  // any link to another site opens in a new tab, keeping this page open
+  document.querySelectorAll('a[href]').forEach(function (a) {
+    if (/^https?:$/.test(a.protocol) && a.host !== location.host) {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    }
+  });
+
+  // language switch: ES is the default (it is in the markup), EN and RU come from I18N.
+  // Each translated element keeps the attributes of its inner tags (links, bold, accent spans).
+  var langButtons = document.querySelectorAll('.lang-switch button');
+  var i18nEls = document.querySelectorAll('[data-i18n]');
+  var tagTemplates = [];
+  i18nEls.forEach(function (el, n) {
+    tagTemplates[n] = Array.prototype.map.call(el.querySelectorAll('*'), function (c) {
+      return { tag: c.tagName, attrs: Array.prototype.map.call(c.attributes, function (a) { return [a.name, a.value]; }) };
+    });
+  });
+  // main heading on screen 1: ?name=Carmen -> "¡Hola, / Carmen!" (two lines), without a name just "¡Hola!".
+  // Built with textContent, so a name from the link can't inject markup.
+  var guestName = (new URLSearchParams(location.search).get('name') || '').trim().slice(0, 40);
+  var helloEl = document.getElementById('hero-hello');
+  // shrink the font only as much as needed so every line fits the screen width
+  function fitHello() {
+    helloEl.style.fontSize = '';
+    var size = parseFloat(getComputedStyle(helloEl).fontSize), ratio = 1;
+    Array.prototype.forEach.call(helloEl.children, function (line) {
+      var r = document.createRange(); r.selectNodeContents(line);
+      var needed = r.getBoundingClientRect().width;
+      if (needed > 0) ratio = Math.min(ratio, line.clientWidth / needed);
+    });
+    if (ratio < 1) helloEl.style.fontSize = Math.max(26, Math.floor(size * ratio * 0.98)) + 'px';
+  }
+  function renderHello(lang) {
+    var lines = guestName
+      ? I18N['hero.helloName'][lang].split('|').map(function (p) { return p.replace('{name}', guestName); })
+      : [I18N['hero.hello'][lang]];
+    helloEl.textContent = '';
+    lines.forEach(function (text) {
+      var line = document.createElement('span');
+      line.textContent = text;
+      helloEl.appendChild(line);
+    });
+    fitHello();
+  }
+  if (document.fonts) document.fonts.ready.then(fitHello);
+  var fitFrame;
+  window.addEventListener('resize', function () { cancelAnimationFrame(fitFrame); fitFrame = requestAnimationFrame(fitHello); });
+  var currentLang = 'es';
+  function setLang(lang) {
+    if (lang !== currentLang) {
+      i18nEls.forEach(function (el, n) {
+        var t = I18N[el.dataset.i18n];
+        if (!t || t[lang] == null) return;
+        el.innerHTML = t[lang];
+        el.querySelectorAll('*').forEach(function (c, k) {
+          var tpl = tagTemplates[n][k];
+          if (tpl && tpl.tag === c.tagName) tpl.attrs.forEach(function (a) { c.setAttribute(a[0], a[1]); });
+        });
+      });
+      currentLang = lang;
+    }
+    renderHello(lang);
+    document.documentElement.lang = lang;
+    document.title = I18N['meta.title'][lang];
+    document.documentElement.setAttribute('data-lang', lang);
+    langButtons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
+  }
+  langButtons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
+  setLang('es');
+
   var items = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {

@@ -442,7 +442,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     fitHello();
   }
-  if (document.fonts) document.fonts.ready.then(fitHello);
+  if (document.fonts) {
+    document.fonts.ready.then(fitHello);
+    // Google Fonts splits fonts by alphabet: Cyrillic arrives only when Russian text first shows up,
+    // so refit whenever a font finishes loading...
+    document.fonts.addEventListener('loadingdone', fitHello);
+    // ...and fetch the Cyrillic faces in the background after load, so switching to RU is instant
+    window.addEventListener('load', function () {
+      ['600 1em Unbounded', '500 1em Unbounded', '400 1em Unbounded', '400 1em Onest', '600 1em Onest', '500 1em "JetBrains Mono"']
+        .forEach(function (font) { document.fonts.load(font, 'Здравствуйте').catch(function () {}); });
+    });
+  }
   var fitFrame;
   window.addEventListener('resize', function () { cancelAnimationFrame(fitFrame); fitFrame = requestAnimationFrame(fitHello); });
   var currentLang = 'es';

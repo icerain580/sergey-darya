@@ -31,9 +31,11 @@
   .lang-switch button { min-width: 54px; height: 40px; padding: 0 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .14em; color: #f2efe9; background: rgba(18,16,14,.28); border: 1px solid rgba(242,239,233,.55); border-radius: 10px; cursor: pointer; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background .2s, color .2s, border-color .2s; }
   .lang-switch button:hover { border-color: #f2efe9; }
   .lang-switch button[aria-pressed="true"] { background: #e5b8a6; color: #12100e; border-color: #e5b8a6; }
-  .to-contacts { position: fixed; left: 50%; bottom: calc(32px + env(safe-area-inset-bottom)); z-index: 50; display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #12100e; background: #f2efe9; border: 1px solid #f2efe9; border-radius: 12px; box-shadow: 0 8px 24px rgba(18,16,14,.25); opacity: 0; transform: translate(-50%, 16px); pointer-events: none; transition: opacity .35s ease, transform .35s ease, background .2s, border-color .2s; }
+  /* light pill button: floating "Contacts" and "Back to top" */
+  .btn-light { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #12100e; background: #f2efe9; border: 1px solid #f2efe9; border-radius: 12px; box-shadow: 0 8px 24px rgba(18,16,14,.25); transition: background .2s, border-color .2s; }
+  .btn-light:hover { color: #12100e; background: #e5b8a6; border-color: #e5b8a6; }
+  .to-contacts { position: fixed; left: 50%; bottom: calc(32px + env(safe-area-inset-bottom)); z-index: 50; opacity: 0; transform: translate(-50%, 16px); pointer-events: none; transition: opacity .35s ease, transform .35s ease, background .2s, border-color .2s; }
   .to-contacts.shown { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
-  .to-contacts:hover { color: #12100e; background: #e5b8a6; border-color: #e5b8a6; }
   .logo-img { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; background: transparent; }
 </style>
 </head>
@@ -42,7 +44,7 @@
 
   <section data-screen-label="01 Обложка" style="position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;background:#12100e">
     <div style="position:absolute;inset:0"><img src="media/opt/s1-selfie.jpg" alt="" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
-    <div data-i18n="hero.tag" style="position:absolute;top:22px;right:16px;transform:rotate(90deg);transform-origin:100% 0;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#f2efe9;mix-blend-mode:difference">buscamos piso · barcelona 2026</div>
+    <div data-i18n="hero.tag" style="position:absolute;top:22px;right:16px;writing-mode:vertical-rl;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#f2efe9;mix-blend-mode:difference">buscamos piso · barcelona 2026</div>
     <div style="position:relative;pointer-events:none;padding:30px 18px calc(48px + 7svh);background:linear-gradient(to top,rgba(18,16,14,.88),rgba(18,16,14,.35) 55%,rgba(18,16,14,0))">
       <h1 id="hero-hello" class="hero-hello" style="font-family:'Unbounded',sans-serif;font-weight:600;line-height:1.18;letter-spacing:-.05em;margin:0;color:#f7f5f1;text-shadow:0 2px 24px rgba(18,16,14,.45)"><span>¡Hola!</span></h1>
       <div class="lang-switch" role="group" aria-label="Idioma · Language · Язык">
@@ -221,16 +223,22 @@
       <a class="hover-insta" href="https://www.instagram.com/dasha_politota" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);color:#fff;font-size:15px;font-weight:600">Daria<span style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.7">↗</span></a>
     </div>
     <p data-i18n="bye.last" data-reveal style="font-family:'Unbounded',sans-serif;font-weight:400;font-size:24px;line-height:1.15;letter-spacing:-.03em;margin:0;color:#e5b8a6">¡Le deseamos lo mejor!</p>
+    <div data-reveal style="margin-top:32px"><a class="btn-light to-top" href="#"><span data-i18n="nav.top">Volver al inicio</span><span aria-hidden="true">↑</span></a></div>
   </section>
 
 </div>
-<a class="to-contacts" href="#contacts" aria-hidden="true" tabindex="-1"><span data-i18n="nav.contacts">Contacto</span><span aria-hidden="true">↓</span></a>
+<a class="btn-light to-contacts" href="#contacts" aria-hidden="true" tabindex="-1"><span data-i18n="nav.contacts">Contacto</span><span aria-hidden="true">↓</span></a>
 <script>
 var I18N = {
  "meta.title": {
   "es": "Sergey y Daria — buscamos piso en Barcelona",
   "en": "Sergey & Daria — looking for an apartment in Barcelona",
   "ru": "Сергей и Дарья — ищем квартиру в Барселоне"
+ },
+ "nav.top": {
+  "es": "Volver al inicio",
+  "en": "Back to top",
+  "ru": "В начало"
  },
  "nav.contacts": {
   "es": "Contacto",
@@ -500,6 +508,12 @@ document.addEventListener('DOMContentLoaded', function () {
     window.scrollTo({ top: Math.max(byHeading, byPhone), behavior: 'smooth' });
   });
   updateToContacts();
+
+  // "Back to top" at the end of the page: smooth scroll up, the URL (and ?name=) stays as is
+  document.querySelector('.to-top').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
   var items = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window) {

@@ -31,6 +31,9 @@
   .lang-switch button { min-width: 54px; height: 40px; padding: 0 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .14em; color: #f2efe9; background: rgba(18,16,14,.28); border: 1px solid rgba(242,239,233,.55); border-radius: 10px; cursor: pointer; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background .2s, color .2s, border-color .2s; }
   .lang-switch button:hover { border-color: #f2efe9; }
   .lang-switch button[aria-pressed="true"] { background: #e5b8a6; color: #12100e; border-color: #e5b8a6; }
+  .to-contacts { position: fixed; left: 50%; bottom: calc(32px + env(safe-area-inset-bottom)); z-index: 50; display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #12100e; background: #f2efe9; border: 1px solid #f2efe9; border-radius: 12px; box-shadow: 0 8px 24px rgba(18,16,14,.25); opacity: 0; transform: translate(-50%, 16px); pointer-events: none; transition: opacity .35s ease, transform .35s ease, background .2s, border-color .2s; }
+  .to-contacts.shown { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+  .to-contacts:hover { color: #12100e; background: #e5b8a6; border-color: #e5b8a6; }
   .logo-img { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; background: transparent; }
 </style>
 </head>
@@ -144,8 +147,8 @@
       <div style="aspect-ratio:9/16;transform:rotate(.8deg)"><img src="media/opt/s6-5.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
       <div style="aspect-ratio:9/16;transform:translateY(18px) rotate(-1.2deg)"><img src="media/opt/s5-5.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
     </div>
-    <div data-reveal style="width:62%;margin:26px 0 10px 30%;transform:rotate(1.2deg)"><img src="media/opt/s5-6.jpg" alt="" loading="lazy" style="width:100%;height:auto;display:block" /></div>
-    <div data-reveal style="margin-bottom:36px"><img src="media/opt/s5-7.jpg" alt="" loading="lazy" style="width:100%;height:auto;display:block" /></div>
+    <div data-reveal style="width:62%;margin:26px 0 10px 30%;transform:rotate(1.2deg)"><img src="media/opt/s5-6.jpg" alt="" width="787" height="1400" loading="lazy" style="width:100%;height:auto;display:block" /></div>
+    <div data-reveal style="margin-bottom:36px"><img src="media/opt/s5-7.jpg" alt="" width="1400" height="787" loading="lazy" style="width:100%;height:auto;display:block" /></div>
 
     <div style="background:#e9e4da;padding-top:34px;padding-bottom:8px;margin:0 -18px;padding-left:18px;padding-right:18px">
       <div data-reveal style="margin:0 -18px 28px"><img src="media/opt/s6-7.jpg" alt="" loading="lazy" style="width:100%;aspect-ratio:1.51;object-fit:cover;display:block" /></div>
@@ -202,7 +205,7 @@
     </div>
   </section>
 
-  <section data-screen-label="09 Контакты" style="background:#12100e;color:#f2efe9;padding:62px 18px 70px;position:relative;overflow:hidden">
+  <section id="contacts" data-screen-label="09 Контакты" style="background:#12100e;color:#f2efe9;padding:62px 18px 70px;position:relative;overflow:hidden">
     <h2 data-i18n="bye.h" data-reveal style="font-family:'Unbounded',sans-serif;font-weight:500;font-size:36px;line-height:.95;letter-spacing:-.03em;margin:0 0 22px">¡Gracias<br /><span style="margin-left:14%;display:inline-block;color:#e5b8a6">por su tiempo!</span></h2>
     <p data-i18n="bye.p" data-reveal style="font-size:17px;line-height:1.55;margin:0 0 28px;color:#e2ddd4;max-width:23em;text-wrap:pretty">Para que la presentación no se haga interminable, lo dejamos aquí. Más abajo encontrará nuestros contactos, por si quiere conocernos aún mejor.</p>
     <div data-reveal style="width:62%;margin:0 0 34px 22%;transform:rotate(-1.6deg)"><video src="media/screen-09.mp4" muted loop playsinline preload="metadata" style="display:block;width:100%;aspect-ratio:.56;object-fit:cover;background:#1b1815"></video></div>
@@ -221,12 +224,18 @@
   </section>
 
 </div>
+<a class="to-contacts" href="#contacts" aria-hidden="true" tabindex="-1"><span data-i18n="nav.contacts">Contacto</span><span aria-hidden="true">↓</span></a>
 <script>
 var I18N = {
  "meta.title": {
   "es": "Sergey y Daria — buscamos piso en Barcelona",
   "en": "Sergey & Daria — looking for an apartment in Barcelona",
   "ru": "Сергей и Дарья — ищем квартиру в Барселоне"
+ },
+ "nav.contacts": {
+  "es": "Contacto",
+  "en": "Contact",
+  "ru": "Контакты"
  },
  "hero.tag": {
   "es": "buscamos piso · barcelona 2026",
@@ -456,6 +465,41 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   langButtons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
   setLang('es');
+
+  // floating "Contacts" button: appears once the next screen after "Work" starts showing at the
+  // bottom of the viewport, hides once "Making the world better" has scrolled off the top
+  // (same lines scrolling down and up)
+  var toContacts = document.querySelector('.to-contacts');
+  var workSec = document.querySelector('[data-screen-label^="03"]');
+  var worldSec = document.querySelector('[data-screen-label^="07"]');
+  var contactsSec = document.getElementById('contacts');
+  function updateToContacts() {
+    var show = workSec.getBoundingClientRect().bottom <= window.innerHeight - 48 && worldSec.getBoundingClientRect().bottom > 0;
+    if (show === toContacts.classList.contains('shown')) return;
+    toContacts.classList.toggle('shown', show);
+    toContacts.setAttribute('aria-hidden', String(!show));
+    toContacts.tabIndex = show ? 0 : -1;
+  }
+  window.addEventListener('scroll', updateToContacts, { passive: true });
+  window.addEventListener('resize', updateToContacts);
+  langButtons.forEach(function (b) { b.addEventListener('click', updateToContacts); });
+  // jump so the heading sits near the top and the phone number is visible at the bottom;
+  // on screens too short for both, the phone number wins
+  toContacts.addEventListener('click', function (e) {
+    e.preventDefault();
+    var topGap = 24;
+    var heading = contactsSec.querySelector('h2');
+    var phone = contactsSec.querySelector('a[href^="tel:"]');
+    // layout position without the reveal animation's translateY
+    function docTop(el) { var y = 0; while (el) { y += el.offsetTop; el = el.offsetParent; } return y; }
+    var byHeading = docTop(heading) - topGap;
+    var byPhone = docTop(phone) + phone.offsetHeight - window.innerHeight + 24;
+    // reveal the whole contacts screen right away, the phone may land in the bottom band
+    // where the scroll-reveal observer doesn't fire
+    contactsSec.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('in'); });
+    window.scrollTo({ top: Math.max(byHeading, byPhone), behavior: 'smooth' });
+  });
+  updateToContacts();
 
   var items = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window) {
